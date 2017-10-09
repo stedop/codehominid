@@ -1,66 +1,92 @@
 <?php declare(strict_types=1);
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
+use App\Http\Controllers\Controller;
 use App\Modules\Blog\Models\Category;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
+    protected $category;
 
-  /**
-   * Display a listing of the resource.
-   *
-   * @return JsonResponse
-   */
-  public function index() : JsonResponse
-  {
-      return \response()->json(Category::all());
-  }
+    /**
+     * CategoryController constructor.
+     *
+     * @param Category $category
+     */
+    public function __construct( Category $category )
+    {
+        $this->category = $category;
+    }
 
-  /**
-   * Store a newly created resource in storage.
-   *
-   * @return Response
-   */
-  public function store()
-  {
-    
-  }
+    /**
+     * Display a listing of the resource.
+     *
+     * @return JsonResponse
+     */
+    public function index() : JsonResponse
+    {
+      return \response()->json($this->category->all());
+    }
 
-  /**
-   * Display a Category by the slug.
-   *
-   * @param  string $slug
-   * @return JsonResponse
-   */
-  public function show(string $slug) : JsonResponse
-  {
+    /**
+     * Store a new Category
+     *
+     * @param Request $request
+     *
+     * @return JsonResponse
+     */
+    public function store(Request $request) : JsonResponse
+    {
+      $request->validate([
+          'name' => 'required|string|size:255',
+          'description' => 'required|sring'
+      ]);
+
+      $newCat = $this->category->save($request->all());
+
+    }
+
+    /**
+     * Display a Category by the slug.
+     *
+     * @param  string $slug
+     * @return JsonResponse
+     */
+    public function show(string $slug) : JsonResponse
+    {
       $cat = Category::where('slug', '=', $slug)->firstOrFail();
       return $cat;
-  }
+    }
 
-  /**
-   * Update the specified resource in storage.
-   *
-   * @param  int  $id
-   * @return Response
-   */
-  public function update($id)
-  {
-    
-  }
+    /**
+     * Update a category
+     *
+     * @param Request $request
+     * @param string $slug
+     *
+     * @return JsonResponse
+     */
+    public function update(Request $request, string $slug) : JsonResponse
+    {
+        $request->validate([
+            'name' => 'required|string|size:255',
+            'description' => 'required|sring'
+        ]);
 
-  /**
-   * Remove the specified resource from storage.
-   *
-   * @param  int  $id
-   * @return Response
-   */
-  public function destroy($id)
-  {
-    
-  }
+        $cat = $this->category->where('slug', '=', $slug)->firstOrFail();
+        $cat->update($request->toArray());
+
+        return response()->json($cat);
+    }
+
+    public function destroy(string $slug) : JsonResponse
+    {
+        $cat = $this->category->where('slug', '=', $slug)->firstOrFail();
+        return response()->json($cat->delete());
+    }
   
 }
 
