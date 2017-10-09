@@ -4,14 +4,25 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-require('./bootstrap');
-
+require( './bootstrap' );
 
 import Vue from 'vue'
 import Vuetify from 'vuetify'
+import Vuex from 'vuex';
+import VueRouter from 'vue-router';
+import Clients from './components/passport/Clients.vue';
+import AuthorisedClients from './components/passport/AuthorizedClients.vue';
+import PersonalAccessTokens from './components/passport/PersonalAccessTokens.vue';
 
 window.Vue = Vue;
-Vue.use(Vuetify);
+
+Vue.use( Vuetify );
+Vue.use( VueRouter );
+Vue.use( Vuex );
+
+Vue.component( 'passport-clients', Clients );
+Vue.component( 'passport-authorized-clients', AuthorisedClients );
+Vue.component( 'passport-personal-access-tokens', PersonalAccessTokens );
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -19,6 +30,6 @@ Vue.use(Vuetify);
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-const app = new Vue({
+const app = new Vue( {
     el: '#admin'
-});
+} );
