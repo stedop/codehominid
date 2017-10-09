@@ -32,9 +32,45 @@ Route::middleware('auth:api')
                     ]
                 ]
             );
-            Route::resource('post', 'PostController');
-            Route::resource('comment', 'CommentController');
-            Route::resource('posttag', 'PostTagController');
-            Route::resource('tag', 'TagController');
+            Route::resource(
+                'post',
+                'PostController',
+                [
+                    'except' => [
+                        'create',
+                        'edit'
+                    ]
+                ]
+            );
+            Route::resource(
+                'comment',
+                'CommentController',
+                [
+                    'except' => [
+                        'create',
+                        'edit'
+                    ]
+                ]
+            );
+            Route::resource(
+                'posttag',
+                'PostTagController',
+                [
+                    'except' => [
+                        'create',
+                        'edit'
+                    ]
+                ]
+            );
+            Route::resource(
+                'tag',
+                'TagController',
+                [
+                    'except' => [
+                        'create',
+                        'edit'
+                    ]
+                ]
+            );
         }
     );
