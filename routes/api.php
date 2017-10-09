@@ -25,9 +25,7 @@ Route::group(
     ],
     function() {
         Route::group(
-            [
-                'namespace' => 'Post',
-            ],
+            [],
             function() {
                 Route::resource(
                     'post',
