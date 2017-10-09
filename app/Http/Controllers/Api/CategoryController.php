@@ -7,7 +7,7 @@ use App\Modules\Blog\Models\Category;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
-class CategoryController extends Controller
+final class CategoryController extends Controller
 {
     protected $category;
 

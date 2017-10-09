@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 
-class PostController extends Controller 
+final class PostController extends Controller
 {
 
   /**

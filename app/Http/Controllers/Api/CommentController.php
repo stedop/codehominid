@@ -8,7 +8,7 @@ use App\Http\Controllers\Controller;
  * Class CommentController
  * @package App\Http\Controllers\Api
  */
-class CommentController extends Controller 
+final class CommentController extends Controller
 {
 
   /**

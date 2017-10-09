@@ -10,7 +10,7 @@ use Illuminate\Http\Response;
  * Class AdminController
  * @package App\Http\Controllers\Admin
  */
-class AdminController extends Controller
+final class AdminController extends Controller
 {
     /**
      * @return \Illuminate\Http\Response

@@ -11,7 +11,7 @@ use Illuminate\Http\Request;
  * Class PostTagController
  * @package App\Http\Controllers\Api
  */
-class PostTagController extends Controller
+final class PostTagController extends Controller
 {
     /**
      * @var PostTag
