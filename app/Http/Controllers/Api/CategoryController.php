@@ -82,6 +82,12 @@ class CategoryController extends Controller
         return response()->json($cat);
     }
 
+    /**
+     * Remove a category
+     *
+     * @param string $slug
+     * @return JsonResponse
+     */
     public function destroy(string $slug) : JsonResponse
     {
         $cat = $this->category->where('slug', '=', $slug)->firstOrFail();
