@@ -11,7 +11,7 @@ use Illuminate\Http\JsonResponse;
  *
  * @package App\Http\Controllers\Api
  */
-final class PostCommentsController extends Controller
+final class PostCommentController extends Controller
 {
     /**
      * @var Post
