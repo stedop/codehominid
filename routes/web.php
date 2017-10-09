@@ -14,3 +14,10 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::resource('category', 'CategoryController');
+Route::resource('post', 'PostController');
+Route::resource('comment', 'CommentController');
+Route::resource('posttag', 'PostTagController');
+Route::resource('tag', 'TagController');
