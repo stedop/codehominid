@@ -3,82 +3,113 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Modules\Blog\Models\PostTag;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
 
-class PostTagController extends Controller 
+/**
+ * Class PostTagController
+ * @package App\Http\Controllers\Api
+ */
+class PostTagController extends Controller
 {
+    /**
+     * @var PostTag
+     */
+    protected $postTag;
 
-  /**
+    /**
+     * PostTagController constructor.
+     *
+     * @param PostTag $postTag
+     */
+    public function __construct( PostTag $postTag )
+    {
+        $this->postTag = $postTag;
+    }
+
+
+    /**
    * Display a listing of the resource.
    *
-   * @return Response
+   * @return JsonResponse
    */
-  public function index()
+  public function index() : JsonResponse
   {
-    
+      $tags = $this->postTag->all();
+      return response()->json($tags);
   }
 
-  /**
-   * Show the form for creating a new resource.
-   *
-   * @return Response
-   */
-  public function create()
+    /**
+     * Create a link
+     *
+     * @param Request $request
+     *
+     * @return JsonResponse
+     */
+  public function store( Request $request ) : JsonResponse
   {
-    
+      $request->validate([
+          'post_id' => 'required|integer|exits:posts',
+          'tag_id' => 'required|integer|exits:tags',
+      ]);
+
+      $postTag = $this->postTag->create(
+          [
+              'post_id' => $request->get('post_id'),
+              'tag_id' => $request->get('tag_id')
+          ]
+      );
+      return response()->json($postTag);
   }
 
-  /**
-   * Store a newly created resource in storage.
-   *
-   * @return Response
-   */
-  public function store()
+    /**
+     * Display the items
+     *
+     * @param int $id
+     * @return JsonResponse
+     */
+  public function show(int $id) : JsonResponse
   {
-    
+      $postTag = $this->postTag->findOrFail($id);
+      return response()->json($postTag);
   }
 
-  /**
-   * Display the specified resource.
-   *
-   * @param  int  $id
-   * @return Response
-   */
-  public function show($id)
+    /**
+     * Update a link
+     *
+     * @param Request $request
+     *
+     * @param int $id
+     * @return JsonResponse
+     */
+  public function update(Request $request, int $id) : JsonResponse
   {
-    
+      $request->validate([
+          'post_id' => 'required|integer|exits:posts',
+          'tag_id' => 'required|integer|exits:tags',
+      ]);
+      $postTag = $this->postTag->findOrFail($id);
+      $postTag->update(
+          [
+              'post_id' => $request->get('post_id'),
+              'tag_id' => $request->get('tag_id')
+          ]
+      );
+      return response()->json($postTag);
   }
 
-  /**
-   * Show the form for editing the specified resource.
-   *
-   * @param  int  $id
-   * @return Response
-   */
-  public function edit($id)
+    /**
+     * Destroy a post/tag link
+     *
+     * @param int $id
+     *
+     * @return JsonResponse
+     */
+  public function destroy(int $id) : JsonResponse
   {
-    
-  }
-
-  /**
-   * Update the specified resource in storage.
-   *
-   * @param  int  $id
-   * @return Response
-   */
-  public function update($id)
-  {
-    
-  }
-
-  /**
-   * Remove the specified resource from storage.
-   *
-   * @param  int  $id
-   * @return Response
-   */
-  public function destroy($id)
-  {
-    
+      $postTag = $this->postTag->findOrFail($id);
+      return response()->json($postTag->delete());
   }
   
 }
