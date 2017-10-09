@@ -15,7 +15,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string description
  *
  */
-class Category extends Model 
+final class Category extends Model
 {
     use Sluggable;
 
