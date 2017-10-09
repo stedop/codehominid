@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,9 +17,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::namespace('Admin')->group(
 
-Route::resource('category', 'CategoryController');
-Route::resource('post', 'PostController');
-Route::resource('comment', 'CommentController');
-Route::resource('posttag', 'PostTagController');
-Route::resource('tag', 'TagController');
+        function() {
+            Route::get('/admin',['as' => 'admin.home', 'uses'=> 'Admin@index']);
+        }
+
+);
+

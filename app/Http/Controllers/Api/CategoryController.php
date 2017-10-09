@@ -1,28 +1,21 @@
-<?php 
+<?php declare(strict_types=1);
 
 namespace App\Http\Controllers;
 
-class CategoryController extends Controller 
+use App\Modules\Blog\Models\Category;
+use Illuminate\Http\JsonResponse;
+
+class CategoryController extends Controller
 {
 
   /**
    * Display a listing of the resource.
    *
-   * @return Response
+   * @return JsonResponse
    */
-  public function index()
+  public function index() : JsonResponse
   {
-    
-  }
-
-  /**
-   * Show the form for creating a new resource.
-   *
-   * @return Response
-   */
-  public function create()
-  {
-    
+      return \response()->json(Category::all());
   }
 
   /**
@@ -36,25 +29,15 @@ class CategoryController extends Controller
   }
 
   /**
-   * Display the specified resource.
+   * Display a Category by the slug.
    *
-   * @param  int  $id
-   * @return Response
+   * @param  string $slug
+   * @return JsonResponse
    */
-  public function show($id)
+  public function show(string $slug) : JsonResponse
   {
-    
-  }
-
-  /**
-   * Show the form for editing the specified resource.
-   *
-   * @param  int  $id
-   * @return Response
-   */
-  public function edit($id)
-  {
-    
+      $cat = Category::where('slug', '=', $slug)->firstOrFail();
+      return $cat;
   }
 
   /**

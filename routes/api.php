@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
-
+use \Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -16,3 +16,25 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::middleware('auth:api')
+    ->namespace('Api')
+    ->prefix('api/v1/')
+    ->group(
+        function() {
+            Route::resource(
+                'category',
+                'CategoryController',
+                [
+                    'except' => [
+                        'create',
+                        'edit'
+                    ]
+                ]
+            );
+            Route::resource('post', 'PostController');
+            Route::resource('comment', 'CommentController');
+            Route::resource('posttag', 'PostTagController');
+            Route::resource('tag', 'TagController');
+        }
+    );
