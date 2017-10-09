@@ -17,60 +17,71 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::middleware('auth:api')
-    ->namespace('Api')
-    ->prefix('api/v1/')
-    ->group(
-        function() {
-            Route::resource(
-                'category',
-                'CategoryController',
-                [
-                    'except' => [
-                        'create',
-                        'edit'
+Route::group(
+    [
+        'middleware' => 'auth:api',
+        'namespace' => 'Api',
+        'prefix' => 'api/v1'
+    ],
+    function() {
+        Route::group(
+            [
+                'namespace' => 'Post',
+            ],
+            function() {
+                Route::resource(
+                    'post',
+                    'PostController',
+                    [
+                        'except' => [
+                            'create',
+                            'edit'
+                        ]
                     ]
-                ]
-            );
-            Route::resource(
-                'post',
-                'PostController',
-                [
-                    'except' => [
-                        'create',
-                        'edit'
+                );
+                Route::resource(
+                    'post.comment',
+                    'PostCommentController',
+                    [
+                        'except' => [
+                            'create',
+                            'edit'
+                        ]
                     ]
+                );
+            }
+        );
+
+        Route::resource(
+            'category',
+            'CategoryController',
+            [
+                'except' => [
+                    'create',
+                    'edit'
                 ]
-            );
-            Route::resource(
-                'comment',
-                'CommentController',
-                [
-                    'except' => [
-                        'create',
-                        'edit'
-                    ]
+            ]
+        );
+
+        Route::resource(
+            'posttag',
+            'PostTagController',
+            [
+                'except' => [
+                    'create',
+                    'edit'
                 ]
-            );
-            Route::resource(
-                'posttag',
-                'PostTagController',
-                [
-                    'except' => [
-                        'create',
-                        'edit'
-                    ]
+            ]
+        );
+        Route::resource(
+            'tag',
+            'TagController',
+            [
+                'except' => [
+                    'create',
+                    'edit'
                 ]
-            );
-            Route::resource(
-                'tag',
-                'TagController',
-                [
-                    'except' => [
-                        'create',
-                        'edit'
-                    ]
-                ]
-            );
-        }
-    );
+            ]
+        );
+    }
+);
