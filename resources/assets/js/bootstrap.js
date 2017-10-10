@@ -26,7 +26,7 @@ if (token) {
 }
 
 
-window.axios.defaults.headers.common['Authorization'] = 'Bearer ' + apiKey;
+window.axios.defaults.headers.common['Authorization'] = 'Bearer ' + process.env.MIX_API_KEY;
 /**
  * Echo exposes an expressive API for subscribing to channels and listening
  * for events that are broadcast by Laravel. Echo and event broadcasting

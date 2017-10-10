@@ -15,9 +15,9 @@ use Illuminate\Http\Request;
 
 Route::get('/user', function (Request $request) {
     return $request->user();
-});
+})->middleware('auth:api');
 
-Route::namespace('Api')->prefix('v1')->group(
+Route::middleware('auth:api')->namespace('Api')->prefix('v1')->group(
     function () {
         Route::namespace('Post')->group(
             function () {
