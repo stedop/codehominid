@@ -17,7 +17,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::middleware('auth:api')->namespce('Api')->prefix('api/v1')->group(
+Route::group(
     function() {
         Route::group(
             function() {
@@ -88,4 +88,4 @@ Route::middleware('auth:api')->namespce('Api')->prefix('api/v1')->group(
             ]
         );
     }
-);
+)->middleware('auth:api')->namespace('Api')->prefix('api/v1');
