@@ -10,7 +10,8 @@
 
     <link rel="stylesheet" href=""{{ mix('/css/app.css') }}">
 </head>
-<body id="admin">
+<body>
+<div id="admin">
     <v-app id="inspire" dark>
         <v-navigation-drawer
                 clipped
@@ -60,7 +61,7 @@
             <span>&copy; 2017</span>
         </v-footer>
     </v-app>
-
+</div>
     <script src="{{ mix('js/admin.js') }}"></script>
 </body>
 </html>
