@@ -39,13 +39,6 @@ const app = new Vue( {
         }
     },
 
-    methods: {
-        goOauth() {
-            //this.$router.go({name: 'ouath'});
-        }
-
-    },
-
     el: '#admin',
 
     watch: {

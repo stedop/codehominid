@@ -18,7 +18,12 @@ Route::get('/', function () {
 Route::namespace('Admin')->group(
     function() {
         Route::get('/admin/{vue?}',['as' => 'admin.home', 'uses'=> 'AdminController@index'])
-            ->where('vue', '.*');;
+            ->where('vue', '.*')
+            ->middleware('auth');
     }
 );
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
