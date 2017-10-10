@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Modules\Blog\Models\Post;
+use App\Models\Post;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
@@ -31,7 +31,7 @@ final class PostCommentController extends Controller
 
 
     /**
-     * Show all comments for a post
+     * Show all comments for a post, paginated
      *
      * @param string $postSlug
      *
@@ -39,7 +39,7 @@ final class PostCommentController extends Controller
      */
     public function index(string $postSlug) : JsonResponse
     {
-        $comments = $this->post->where('slug', '=', $postSlug)->comments()->get();
+        $comments = $this->post->where('slug', '=', $postSlug)->comments()->paginate(20);
         return response()->json($comments);
     }
 
@@ -52,50 +52,6 @@ final class PostCommentController extends Controller
      * @return \Illuminate\Http\JsonResponse
      */
     public function store(Request $request, string $postSlug) : JsonResponse
-    {
-
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return JsonResponse
-     */
-    public function show($id)
-    {
-
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return JsonResponse
-     */
-    public function edit($id)
-    {
-
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  int  $id
-     * @return JsonResponse
-     */
-    public function update($id)
-    {
-
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return JsonResponse
-     */
-    public function destroy($id)
     {
 
     }

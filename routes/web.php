@@ -14,14 +14,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return '';
 });
 
 Route::namespace('Admin')->group(
-
-        function() {
-            Route::get('/admin',['as' => 'admin.home', 'uses'=> 'AdminController@index']);
-        }
-
+    [],
+    function() {
+        Route::get('/admin',['as' => 'admin.home', 'uses'=> 'AdminController@index']);
+    }
 );
 

@@ -41,9 +41,9 @@ Route::group(
                     'post.comment',
                     'PostCommentController',
                     [
-                        'except' => [
-                            'create',
-                            'edit'
+                        'only' => [
+                            'index',
+                            'store'
                         ]
                     ]
                 );
@@ -57,6 +57,18 @@ Route::group(
                 'except' => [
                     'create',
                     'edit'
+                ]
+            ]
+        );
+
+        Route::resource(
+            'comment',
+            'CommentController',
+            [
+                'only' => [
+                    'update',
+                    'show',
+                    'destroy'
                 ]
             ]
         );

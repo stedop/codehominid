@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Modules\Blog\Models\PostTag;
+use App\Models\PostTag;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
