@@ -13,7 +13,7 @@ import VueRouter from 'vue-router';
 import Clients from './components/passport/Clients.vue';
 import AuthorisedClients from './components/passport/AuthorizedClients.vue';
 import PersonalAccessTokens from './components/passport/PersonalAccessTokens.vue';
-import Router from './routes/admin-routes';
+import router from './routes/admin-routes';
 
 window.Vue = Vue;
 
@@ -56,5 +56,5 @@ const app = new Vue( {
         }
     },
 
-    Router
+    router
 } );
