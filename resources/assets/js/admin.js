@@ -34,11 +34,27 @@ Vue.component( 'passport-personal-access-tokens', PersonalAccessTokens );
 const app = new Vue( {
     data: () => {
         return {
-            drawer: false
+            drawer: false,
+            transitionName: 'slide-left'
         }
     },
 
+    methods: {
+        goOAuth() {
+            this.$router.go({name: 'ouath'});
+        }
+
+    },
+
     el: '#admin',
+
+    watch: {
+        '$route' ( to, from ) {
+            const toDepth = to.path.split( '/' ).length;
+            const fromDepth = from.path.split( '/' ).length;
+            this.transitionName = toDepth < fromDepth ? 'slide-right' : 'slide-left'
+        }
+    },
 
     Router
 } );

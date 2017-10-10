@@ -29,9 +29,9 @@
                         <v-list-tile-title>Dashboard</v-list-tile-title>
                     </v-list-tile-content>
                 </v-list-tile>
-                <v-list-tile @click="">
+                <v-list-tile @click="goOAuth()">
                     <v-list-tile-action>
-                        <v-icon>Perm Identity</v-icon>
+                        <v-icon>perm-identity</v-icon>
                     </v-list-tile-action>
                     <v-list-tile-content>
                         <v-list-tile-title>OAuth</v-list-tile-title>
@@ -55,7 +55,9 @@
             <v-content>
                 <v-container fluid fill-height>
                     <v-layout justify-center align-center>
-                        CONTENT
+                        <transition :name="transitionName">
+                            <router-view></router-view>
+                        </transition>
                     </v-layout>
                 </v-container>
             </v-content>
