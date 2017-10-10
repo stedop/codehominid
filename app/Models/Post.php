@@ -31,7 +31,8 @@ final class Post extends Model
         'description',
         'summary',
         'contents',
-        'status'
+        'status',
+        'featured'
     ];
 
     public function category()
