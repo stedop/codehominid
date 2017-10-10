@@ -1,7 +1,5 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,7 +16,6 @@ Route::get('/', function () {
 });
 
 Route::namespace('Admin')->group(
-    [],
     function() {
         Route::get('/admin',['as' => 'admin.home', 'uses'=> 'AdminController@index']);
     }

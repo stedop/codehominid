@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
-use \Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -17,18 +17,18 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::group(
-    function() {
-        Route::group(
-            function() {
+Route::middleware('auth:api')->namespace('Api')->prefix('api/v1')->group(
+    function () {
+        Route::namespace('Post')->group(
+            function () {
                 Route::resource(
                     'post',
                     'PostController',
                     [
                         'except' => [
                             'create',
-                            'edit'
-                        ]
+                            'edit',
+                        ],
                     ]
                 );
                 Route::resource(
@@ -37,8 +37,8 @@ Route::group(
                     [
                         'only' => [
                             'index',
-                            'store'
-                        ]
+                            'store',
+                        ],
                     ]
                 );
             }
@@ -50,8 +50,8 @@ Route::group(
             [
                 'except' => [
                     'create',
-                    'edit'
-                ]
+                    'edit',
+                ],
             ]
         );
 
@@ -62,8 +62,8 @@ Route::group(
                 'only' => [
                     'update',
                     'show',
-                    'destroy'
-                ]
+                    'destroy',
+                ],
             ]
         );
 
@@ -73,8 +73,8 @@ Route::group(
             [
                 'except' => [
                     'create',
-                    'edit'
-                ]
+                    'edit',
+                ],
             ]
         );
         Route::resource(
@@ -83,9 +83,9 @@ Route::group(
             [
                 'except' => [
                     'create',
-                    'edit'
-                ]
+                    'edit',
+                ],
             ]
         );
     }
-)->middleware('auth:api')->namespace('Api')->prefix('api/v1');
+);

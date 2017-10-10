@@ -1,9 +1,9 @@
 <?php declare(strict_types=1);
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers\Api\Post;
 
 use App\Http\Controllers\Controller;
-use App\Modules\Blog\Models\Post;
+use App\Models\Post;
 use App\Types\PostStatus;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -12,14 +12,14 @@ use Illuminate\Validation\Rule;
 final class PostController extends Controller
 {
     /**
-     * @var \App\Modules\Blog\Models\Post
+     * @var \App\Models\Post
      */
     protected $post;
 
     /**
      * PostController constructor.
      *
-     * @param \App\Modules\Blog\Models\Post $post
+     * @param \App\Models\Post $post
      */
     public function __construct(Post $post)
     {
