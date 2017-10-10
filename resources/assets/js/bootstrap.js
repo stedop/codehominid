@@ -2,7 +2,7 @@ window._ = require('lodash');
 
 try {
     window.$ = window.jQuery = require('jquery');
-
+    console.log('jquery',window.$);
     require('bootstrap');
 } catch (e) {console.log(e)}
 
