@@ -29,7 +29,7 @@
                         <v-list-tile-title>Dashboard</v-list-tile-title>
                     </v-list-tile-content>
                 </v-list-tile>
-                <v-list-tile @click="goOAuth()">
+                <v-list-tile @click.prevent="goOAuth">
                     <v-list-tile-action>
                         <v-icon>perm-identity</v-icon>
                     </v-list-tile-action>
