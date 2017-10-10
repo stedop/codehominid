@@ -33,7 +33,7 @@ Vue.component( 'passport-personal-access-tokens', PersonalAccessTokens );
 const app = new Vue( {
     data: () => {
         return {
-            drawer: false;
+            drawer: false
         }
     },
 
