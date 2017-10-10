@@ -17,15 +17,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::group(
-    [
-        'middleware' => 'auth:api',
-        'namespace' => 'Api',
-        'prefix' => 'api/v1'
-    ],
+Route::middleware('auth:api')->namespce('Api')->prefix('api/v1')->group(
     function() {
         Route::group(
-            [],
             function() {
                 Route::resource(
                     'post',
