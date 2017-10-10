@@ -29,9 +29,9 @@
                         <v-list-tile-title>Dashboard</v-list-tile-title>
                     </v-list-tile-content>
                 </v-list-tile>
-                <v-list-tile @click.stop="goOAuth">
+                <v-list-tile @click.stop="goOauth">
                     <v-list-tile-action>
-                        <v-icon>perm-identity</v-icon>
+                        <v-icon>permidentity</v-icon>
                     </v-list-tile-action>
                     <v-list-tile-content>
                         <v-list-tile-title>OAuth</v-list-tile-title>

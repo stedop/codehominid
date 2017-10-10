@@ -40,8 +40,8 @@ const app = new Vue( {
     },
 
     methods: {
-        goOAuth() {
-            this.$router.go({name: 'ouath'});
+        goOauth() {
+            //this.$router.go({name: 'ouath'});
         }
 
     },
