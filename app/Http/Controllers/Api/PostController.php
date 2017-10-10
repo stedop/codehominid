@@ -54,7 +54,8 @@ final class PostController extends Controller
                 'summary' => ['required', 'string'],
                 'contents' => ['required', 'string'],
                 'status' => [
-                    'required',
+                    'sometimes',
+                    'string',
                     Rule::in($postStatus->getConstList())
                 ]
             ]
@@ -66,7 +67,7 @@ final class PostController extends Controller
                 'description' => $request->get('description'),
                 'summary' => $request->get('summary'),
                 'contents' => $request->get('contents'),
-                'status' => $request->get('status'),
+                'status' => $request->get('status', PostStatus::__default),
             ]
         );
 

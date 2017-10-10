@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Modules\Blog\Models\Post;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
 
 /**
  * Class PostCommentsController
@@ -43,11 +44,14 @@ final class PostCommentController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Adds a comment
      *
-     * @return JsonResponse
+     * @param \Illuminate\Http\Request $request
+     * @param string                   $postSlug
+     *
+     * @return \Illuminate\Http\JsonResponse
      */
-    public function store()
+    public function store(Request $request, string $postSlug) : JsonResponse
     {
 
     }
