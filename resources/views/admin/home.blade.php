@@ -10,7 +10,7 @@
 
     <link rel="stylesheet" href=""{{ mix('/css/app.css') }}">
 </head>
-<body id="app">
+<body id="admin">
     <v-app id="inspire" dark>
         <v-navigation-drawer
                 clipped
