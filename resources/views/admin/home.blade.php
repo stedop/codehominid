@@ -12,60 +12,10 @@
 </head>
 <body>
 <div id="admin">
-    <v-app id="inspire" dark>
-        <v-navigation-drawer
-                clipped
-                persistent
-                v-model="drawer"
-                enable-resize-watcher
-                app
-        >
-            <v-list dense>
-                <v-list-tile @click="">
-                    <v-list-tile-action>
-                        <v-icon>dashboard</v-icon>
-                    </v-list-tile-action>
-                    <v-list-tile-content>
-                        <v-list-tile-title>Dashboard</v-list-tile-title>
-                    </v-list-tile-content>
-                </v-list-tile>
-                <li>
-                    <router-link :to="{name: 'oauth'}" class="list__tile list__tile--link">
-                        <div class="list__tile__action"><i class="material-icons icon">identity</i></div>
-                        <div class="list__tile__content">
-                            <div class="list__tile__title">OAuth</div>
-                        </div>
-                    </router-link>
-                </li>
-                <v-list-tile @click="">
-                    <v-list-tile-action>
-                        <v-icon>settings</v-icon>
-                    </v-list-tile-action>
-                    <v-list-tile-content>
-                        <v-list-tile-title>Settings</v-list-tile-title>
-                    </v-list-tile-content>
-                </v-list-tile>
-            </v-list>
-        </v-navigation-drawer>
-        <v-toolbar app fixed clipped-left>
-            <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
-            <v-toolbar-title>Monkey Around</v-toolbar-title>
-        </v-toolbar>
-        <main>
-            <v-content>
-                <v-container fluid fill-height>
-                    <v-layout justify-center align-center>
-                        <transition :name="transitionName">
-                            <router-view></router-view>
-                        </transition>
-                    </v-layout>
-                </v-container>
-            </v-content>
-        </main>
-        <v-footer app fixed>
-            <span>&copy; 2017</span>
-        </v-footer>
-    </v-app>
+    <b-container fluid>
+        <h1>Monkey around</h1>
+        <router-link to="{name: 'oauth'}"></router-link>
+    </b-container>
 </div>
     <script src="{{ mix('js/admin.js') }}"></script>
 </body>

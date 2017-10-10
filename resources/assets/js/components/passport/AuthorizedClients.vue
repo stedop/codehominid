@@ -11,10 +11,10 @@
 <template>
     <div>
         <div v-if="tokens.length > 0">
-            <v-card>
-                <v-card-title>Authorized Applications</v-card-title>
+            <div class="panel panel-default">
+                <div class="panel-heading">Authorized Applications</div>
 
-                <v-card-text>
+                <div class="panel-body">
                     <!-- Authorized Tokens -->
                     <table class="table table-borderless m-b-none">
                         <thead>
@@ -48,23 +48,17 @@
                             </tr>
                         </tbody>
                     </table>
-                </v-card-text>
-            </v-card>
+                </div>
+            </div>
         </div>
     </div>
 </template>
 
 <script>
-    import VCard from "vuetify/src/components/VCard/VCard";
-    import VCardTitle from "vuetify/src/components/VCard/VCardTitle";
-
     export default {
         /*
          * The component's data.
          */
-        components: {
-            VCardTitle,
-            VCard },
         data() {
             return {
                 tokens: []

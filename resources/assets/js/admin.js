@@ -7,9 +7,10 @@
 require( './bootstrap' );
 
 import Vue from 'vue'
-import Vuetify from 'vuetify'
 import Vuex from 'vuex';
 import VueRouter from 'vue-router';
+import BootstrapVue from 'bootstrap-vue';
+
 import Clients from './components/passport/Clients.vue';
 import AuthorisedClients from './components/passport/AuthorizedClients.vue';
 import PersonalAccessTokens from './components/passport/PersonalAccessTokens.vue';
@@ -17,7 +18,7 @@ import router from './routes/admin-routes';
 
 window.Vue = Vue;
 
-Vue.use( Vuetify );
+Vue.use( BootstrapVue );
 Vue.use( VueRouter );
 Vue.use( Vuex );
 
