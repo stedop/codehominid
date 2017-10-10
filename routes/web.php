@@ -17,7 +17,8 @@ Route::get('/', function () {
 
 Route::namespace('Admin')->group(
     function() {
-        Route::get('/admin',['as' => 'admin.home', 'uses'=> 'AdminController@index']);
+        Route::get('/admin/{vue?}',['as' => 'admin.home', 'uses'=> 'AdminController@index'])
+            ->where('vue', '.*');;
     }
 );
 

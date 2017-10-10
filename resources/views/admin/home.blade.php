@@ -31,6 +31,14 @@
                 </v-list-tile>
                 <v-list-tile @click="">
                     <v-list-tile-action>
+                        <v-icon>Perm Identity</v-icon>
+                    </v-list-tile-action>
+                    <v-list-tile-content>
+                        <v-list-tile-title>OAuth</v-list-tile-title>
+                    </v-list-tile-content>
+                </v-list-tile>
+                <v-list-tile @click="">
+                    <v-list-tile-action>
                         <v-icon>settings</v-icon>
                     </v-list-tile-action>
                     <v-list-tile-content>
