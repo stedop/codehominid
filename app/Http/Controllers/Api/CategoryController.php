@@ -28,7 +28,7 @@ final class CategoryController extends Controller
      */
     public function index() : JsonResponse
     {
-      return \response()->json($this->category->all());
+        return response()->json($this->category->all());
     }
 
     /**
@@ -40,13 +40,13 @@ final class CategoryController extends Controller
      */
     public function store(Request $request) : JsonResponse
     {
-      $request->validate([
-          'name' => 'required|string|size:255',
-          'description' => 'required|sring'
-      ]);
+        $request->validate([
+            'name' => 'required|string|size:255',
+            'description' => 'required|sring'
+        ]);
+        $newCat = $this->category->save($request->all());
 
-      $newCat = $this->category->save($request->all());
-
+        return response()->json($newCat);
     }
 
     /**
@@ -57,8 +57,8 @@ final class CategoryController extends Controller
      */
     public function show(string $slug) : JsonResponse
     {
-      $cat = Category::where('slug', '=', $slug)->firstOrFail();
-      return $cat;
+        $cat = Category::where('slug', '=', $slug)->firstOrFail();
+        return response()->json($cat);
     }
 
     /**
