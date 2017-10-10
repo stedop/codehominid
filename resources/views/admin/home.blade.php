@@ -12,14 +12,14 @@
 </head>
 <body>
 <div id="admin">
-    <b-container fluid>
+    <div class="container-fluid">
         <h1>Monkey around</h1>
         <router-link :to="{name: 'oauth'}" class="btn btn-block btn-primary">Ouath</router-link>
-    </b-container>
-    <transition :name="transitionName">
-        <router-view></router-view>
-    </transition>
 
+        <transition :name="transitionName">
+            <router-view></router-view>
+        </transition>
+    </div>
 </div>
     <script src="{{ mix('js/admin.js') }}"></script>
 </body>
