@@ -4,7 +4,7 @@ try {
     window.$ = window.jQuery = require('jquery');
 
     require('bootstrap');
-} catch (e) {}
+} catch (e) {console.log(e)}
 
 
 /**
