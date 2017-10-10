@@ -29,7 +29,7 @@
                         <v-list-tile-title>Dashboard</v-list-tile-title>
                     </v-list-tile-content>
                 </v-list-tile>
-                <v-list-tile @click.prevent="goOAuth">
+                <v-list-tile @click.stop="goOAuth">
                     <v-list-tile-action>
                         <v-icon>perm-identity</v-icon>
                     </v-list-tile-action>
@@ -49,7 +49,7 @@
         </v-navigation-drawer>
         <v-toolbar app fixed clipped-left>
             <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
-            <v-toolbar-title>Application</v-toolbar-title>
+            <v-toolbar-title>Monkey Around</v-toolbar-title>
         </v-toolbar>
         <main>
             <v-content>
