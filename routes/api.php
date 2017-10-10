@@ -17,7 +17,7 @@ Route::get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::namespace('Api')->prefix('api/v1')->group(
+Route::namespace('Api')->prefix('v1')->group(
     function () {
         Route::namespace('Post')->group(
             function () {
