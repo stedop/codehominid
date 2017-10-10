@@ -3,7 +3,7 @@ window._ = require('lodash');
 
 import $ from 'jquery';
 window.$ = window.jQuery = $;
-console.log('jquery',window.$);
+require('popper.js');
 require('bootstrap');
 
 
