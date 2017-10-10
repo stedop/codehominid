@@ -16,6 +16,10 @@
         <h1>Monkey around</h1>
         <router-link :to="{name: 'oauth'}" class="btn btn-block btn-primary">Ouath</router-link>
     </b-container>
+    <transition :name="transitionName">
+        <router-view></router-view>
+    </transition>
+
 </div>
     <script src="{{ mix('js/admin.js') }}"></script>
 </body>
