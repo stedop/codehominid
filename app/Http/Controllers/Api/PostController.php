@@ -33,7 +33,7 @@ final class PostController extends Controller
      */
     public function index() : JsonResponse
     {
-        $posts = $this->post->orderBy('date_created', 'DESC')->get()
+        $posts = $this->post->orderBy('date_created', 'DESC')->get();
         return response()->json($posts);
     }
 
