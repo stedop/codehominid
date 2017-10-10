@@ -14,7 +14,7 @@
 <div id="admin">
     <b-container fluid>
         <h1>Monkey around</h1>
-        <router-link to="{name: 'oauth'}"></router-link>
+        <router-link to="{name: 'oauth'}" class="btn btn-block btn-primary">Ouath</router-link>
     </b-container>
 </div>
     <script src="{{ mix('js/admin.js') }}"></script>
