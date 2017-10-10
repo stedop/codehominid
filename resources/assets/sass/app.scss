@@ -2,9 +2,9 @@
 // Fonts
 @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700");
 
-@import "variables";
-
+// Bootstrap with my vars
 @import "~bootstrap/scss/functions";
+@import "variables";
 @import "~bootstrap/scss/mixins";
 @import "~bootstrap/scss/print";
 @import "~bootstrap/scss/reboot";
