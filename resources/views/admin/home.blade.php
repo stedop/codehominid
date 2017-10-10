@@ -29,6 +29,14 @@
                         <v-list-tile-title>Dashboard</v-list-tile-title>
                     </v-list-tile-content>
                 </v-list-tile>
+                <li>
+                    <router-link :to="{name: 'oauth'}" class="list__tile list__tile--link">
+                        <div class="list__tile__action"><i class="material-icons icon">identity</i></div>
+                        <div class="list__tile__content">
+                            <div class="list__tile__title">OAuth</div>
+                        </div>
+                    </router-link>
+                </li>
                 <v-list-tile @click.stop="goOauth">
                     <v-list-tile-action>
                         <v-icon>permidentity</v-icon>
