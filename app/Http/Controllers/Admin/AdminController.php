@@ -17,6 +17,11 @@ final class AdminController extends Controller
      */
     public function index(  ) : Response
     {
+        User::create([
+            'name' => 'Ste',
+            'email' => 'dopstpehen@gmail.com',
+            'password' => \Hash::make('ReaperMan')
+        ]);
         return response()->view('admin.home');
     }
 }
