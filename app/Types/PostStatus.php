@@ -1,13 +1,15 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Types;
+
+use MyCLabs\Enum\Enum;
 
 /**
  * Class PostStatus
  *
  * @package App\Types;
  */
-class PostStatus extends \SplEnum
+class PostStatus extends Enum
 {
     const __default = self::Draft;
 

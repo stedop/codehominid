@@ -11,7 +11,8 @@
         "laravel/framework": "5.5.*",
         "laravel/passport": "^4.0",
         "laravel/tinker": "^1.0",
-        "mpociot/laravel-apidoc-generator": "^2.0"
+        "mpociot/laravel-apidoc-generator": "^2.0",
+        "myclabs/php-enum": "^1.5"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^2.4",
