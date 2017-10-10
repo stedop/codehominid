@@ -3,84 +3,137 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Modules\Blog\Models\Post;
+use App\Types\PostStatus;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 final class PostController extends Controller
 {
+    /**
+     * @var \App\Modules\Blog\Models\Post
+     */
+    protected $post;
 
-  /**
-   * Display a listing of the resource.
-   *
-   * @return Response
-   */
-  public function index()
-  {
-    
-  }
+    /**
+     * PostController constructor.
+     *
+     * @param \App\Modules\Blog\Models\Post $post
+     */
+    public function __construct(Post $post)
+    {
+        $this->post = $post;
+    }
 
-  /**
-   * Show the form for creating a new resource.
-   *
-   * @return Response
-   */
-  public function create()
-  {
-    
-  }
+    /**
+     * List all posts in reverse date order
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function index() : JsonResponse
+    {
+        $posts = $this->post->orderBy('date_created', 'DESC')->get()
+        return response()->json($posts);
+    }
 
-  /**
-   * Store a newly created resource in storage.
-   *
-   * @return Response
-   */
-  public function store()
-  {
-    
-  }
+    /**
+     * Create a post
+     *
+     * @param \Illuminate\Http\Request $request
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function store(Request $request) : JsonResponse
+    {
+        $postStatus = new PostStatus();
+        $request->validate(
+            [
+                'title' => ['required', 'string', 'max:255'],
+                'description' => ['required', 'string'],
+                'summary' => ['required', 'string'],
+                'contents' => ['required', 'string'],
+                'status' => [
+                    'required',
+                    Rule::in($postStatus->getConstList())
+                ]
+            ]
+        );
 
-  /**
-   * Display the specified resource.
-   *
-   * @param  int  $id
-   * @return Response
-   */
-  public function show($id)
-  {
-    
-  }
+        $newPost = $this->post->save(
+            [
+                'title' => $request->get('title'),
+                'description' => $request->get('description'),
+                'summary' => $request->get('summary'),
+                'contents' => $request->get('contents'),
+                'status' => $request->get('status'),
+            ]
+        );
 
-  /**
-   * Show the form for editing the specified resource.
-   *
-   * @param  int  $id
-   * @return Response
-   */
-  public function edit($id)
-  {
-    
-  }
+        return response()->json($newPost);
+    }
 
-  /**
-   * Update the specified resource in storage.
-   *
-   * @param  int  $id
-   * @return Response
-   */
-  public function update($id)
-  {
-    
-  }
+    /**
+     * Get a post
+     *
+     * @param string $slug
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function show(string $slug) : JsonResponse
+    {
+        $post = $this->post->where('slug', '=', $slug)->firstOrFail();
+        return response()->json($post);
+    }
 
-  /**
-   * Remove the specified resource from storage.
-   *
-   * @param  int  $id
-   * @return Response
-   */
-  public function destroy($id)
-  {
-    
-  }
-  
+    /**
+     * Update a post
+     *
+     * @param \Illuminate\Http\Request $request
+     * @param string                   $slug
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function update(Request $request, string $slug) : JsonResponse
+    {
+        $postStatus = new PostStatus();
+        $request->validate(
+            [
+                'title' => ['required', 'string', 'max:255'],
+                'description' => ['required', 'string'],
+                'summary' => ['required', 'string'],
+                'contents' => ['required', 'string'],
+                'status' => [
+                    'required',
+                    Rule::in($postStatus->getConstList())
+                ]
+            ]
+        );
+
+        $newPost = $this->post->where('slug','=', $slug)->firstOrFail();
+        $newPost->update(
+            [
+                'title' => $request->get('title'),
+                'description' => $request->get('description'),
+                'summary' => $request->get('summary'),
+                'contents' => $request->get('contents'),
+                'status' => $request->get('status'),
+            ]
+        );
+
+        return response()->json($newPost);
+    }
+
+    /**
+     * @param string $slug
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function destroy(string $slug) : JsonResponse
+    {
+        $post = $this->post->where('slug', '=', $slug)->firstOrFail();
+        return response()->json($post->delete());
+    }
 }
 
 ?>
