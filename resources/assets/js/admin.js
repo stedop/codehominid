@@ -9,6 +9,7 @@ require( './bootstrap' );
 import Vue from 'vue'
 import Vuex from 'vuex';
 import VueRouter from 'vue-router';
+import VueMaterial from 'vue-material';
 
 import Clients from './components/passport/Clients.vue';
 import AuthorisedClients from './components/passport/AuthorizedClients.vue';
@@ -19,6 +20,7 @@ window.Vue = Vue;
 
 Vue.use( VueRouter );
 Vue.use( Vuex );
+Vue.use( VueMaterial );
 
 Vue.component( 'passport-clients', Clients );
 Vue.component( 'passport-authorized-clients', AuthorisedClients );
