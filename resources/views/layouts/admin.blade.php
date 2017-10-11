@@ -18,7 +18,7 @@
                     <md-icon>menu</md-icon>
                 </md-button>
 
-                <span style="flex: 1;"></span>
+                <span style="flex: 1;">hh</span>
 
                 <md-button class="md-icon-button">
                     <md-icon>search</md-icon>
@@ -30,7 +30,7 @@
             </div>
 
             <div class="md-toolbar-container">
-                <h2 class="md-title">Vue Material</h2>
+                <h2 class="md-title">Monkey around</h2>
             </div>
         </md-toolbar>
         @section('content')
