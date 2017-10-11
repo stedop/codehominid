@@ -14,7 +14,7 @@
     <div id="admin">
         <md-toolbar>
             <div class="md-toolbar-container">
-                <md-button class="md-icon-button">
+                <md-button class="md-icon-button" @click="toggleSidenav">
                     <md-icon>menu</md-icon>
                 </md-button>
 
@@ -29,6 +29,17 @@
                 </md-button>
             </div>
         </md-toolbar>
+
+        <md-sidenav class="md-left" ref="leftSidenav" @open="open('Left')" @close="close('Left')">
+            <md-toolbar class="md-large">
+                <div class="md-toolbar-container">
+                    <h3 class="md-title">Do Things</h3>
+                </div>
+            </md-toolbar>
+            <router-link :to="{name: 'oauth'}" tag="md-button" class="md-raised md-primary">
+                <md-icon>perm_identity</md-icon> Ouath
+            </router-link>
+        </md-sidenav>
         @section('content')
             <transition :name="transitionName">
                 <router-view></router-view>

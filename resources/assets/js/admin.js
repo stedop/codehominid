@@ -57,5 +57,17 @@ const app = new Vue( {
         }
     },
 
+    methods: {
+        toggleSidenav() {
+            this.$refs.leftSidenav.toggle();
+        },
+        open(ref) {
+            console.log('Opened: ' + ref);
+        },
+        close(ref) {
+            console.log('Closed: ' + ref);
+        }
+    },
+
     router
 } );
