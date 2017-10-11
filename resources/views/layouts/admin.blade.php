@@ -12,18 +12,32 @@
 </head>
 <body>
     <div id="admin">
-        <md-toolbar>
-            <md-button class="md-icon-button">
-                <md-icon>menu</md-icon>
-            </md-button>
+        <md-toolbar class="md-large" md-theme="brown">
+            <div class="md-toolbar-container">
+                <md-button class="md-icon-button">
+                    <md-icon>menu</md-icon>
+                </md-button>
 
-            <h2 class="md-title" style="flex: 1">Default</h2>
+                <span style="flex: 1;"></span>
 
-            <md-button class="md-icon-button">
-                <md-icon>favorite</md-icon>
-            </md-button>
+                <md-button class="md-icon-button">
+                    <md-icon>search</md-icon>
+                </md-button>
+
+                <md-button class="md-icon-button">
+                    <md-icon>filter_list</md-icon>
+                </md-button>
+            </div>
+
+            <div class="md-toolbar-container">
+                <h2 class="md-title">Vue Material</h2>
+            </div>
         </md-toolbar>
-@yield('content')
+        @section('content')
+            <transition :name="transitionName">
+                <router-view></router-view>
+            </transition>
+        @show
     </div>
     <script src="{{ mix('js/admin.js') }}"></script>
 </body>
