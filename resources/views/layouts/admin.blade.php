@@ -12,13 +12,13 @@
 </head>
 <body>
     <div id="admin">
-        <md-toolbar class="md-large" md-theme="brown">
+        <md-toolbar class="md-large">
             <div class="md-toolbar-container">
                 <md-button class="md-icon-button">
                     <md-icon>menu</md-icon>
                 </md-button>
 
-                <span style="flex: 1;">hh</span>
+                <span style="flex: 1;">Monkey around</span>
 
                 <md-button class="md-icon-button">
                     <md-icon>search</md-icon>
@@ -27,10 +27,6 @@
                 <md-button class="md-icon-button">
                     <md-icon>filter_list</md-icon>
                 </md-button>
-            </div>
-
-            <div class="md-toolbar-container">
-                <h2 class="md-title">Monkey around</h2>
             </div>
         </md-toolbar>
         @section('content')

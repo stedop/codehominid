@@ -26,6 +26,12 @@ Vue.component( 'passport-clients', Clients );
 Vue.component( 'passport-authorized-clients', AuthorisedClients );
 Vue.component( 'passport-personal-access-tokens', PersonalAccessTokens );
 
+Vue.material.registerTheme('default', {
+    primary: 'brown',
+    accent: 'orange',
+    warn: 'red',
+    background: 'white'
+});
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
