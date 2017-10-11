@@ -31,14 +31,18 @@
         </md-toolbar>
 
         <md-sidenav class="md-left" ref="leftSidenav" @open="open('Left')" @close="close('Left')">
-            <md-toolbar class="md-large">
+            <md-toolbar>
                 <div class="md-toolbar-container">
                     <h3 class="md-title">Do Things</h3>
                 </div>
             </md-toolbar>
-            <router-link :to="{name: 'oauth'}" tag="md-button" class="md-raised md-primary">
-                <md-icon>perm_identity</md-icon> Ouath
-            </router-link>
+            <md-list>
+                <md-list-item>
+                    <router-link :to="{name: 'oauth'}" tag="md-button" class="md-raised md-primary">
+                        <md-icon>perm_identity</md-icon> Ouath
+                    </router-link>
+                </md-list-item>
+            </md-list>
         </md-sidenav>
         @section('content')
             <transition :name="transitionName">
