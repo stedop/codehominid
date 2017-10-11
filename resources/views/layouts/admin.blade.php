@@ -12,7 +12,7 @@
 </head>
 <body>
     <div id="admin">
-        <md-toolbar class="md-large">
+        <md-toolbar>
             <div class="md-toolbar-container">
                 <md-button class="md-icon-button">
                     <md-icon>menu</md-icon>
