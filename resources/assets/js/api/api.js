@@ -17,7 +17,7 @@ const axios = Axios.create({
 });
 
 const blogPosts = Axios.create({
-    baseURL: baseURL + '/post',
+    baseURL: baseURL + 'post/',
     timeout: 1000,
     headers: headers
 });
