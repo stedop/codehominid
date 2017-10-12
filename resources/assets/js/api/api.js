@@ -2,7 +2,7 @@
 
 import Axios from 'axios';
 
-let baseURL = process.env.APP_URL + '/api/v1/';
+let baseURL = 'https://codehomind.co.uk/api/v1/';
 let token = document.head.querySelector('meta[name="csrf-token"]');
 let headers = {
     'X-Requested-With' : 'XMLHttpRequest',
