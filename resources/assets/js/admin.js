@@ -72,11 +72,11 @@ const app = new Vue( {
         },
 
         tryAxios() {
-            axios.get('/post').then(console.log).catch(console.log);
+            axios.get('post').then(console.log).catch(console.log);
         },
 
         tryPosts() {
-            blogPosts.get('/').then(console.log).catch(console.log);
+            blogPosts.get().then(console.log).catch(console.log);
         }
     },
 
