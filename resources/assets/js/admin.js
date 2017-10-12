@@ -4,6 +4,7 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
+
 require( './bootstrap' );
 
 import Vue from 'vue'
@@ -39,6 +40,8 @@ Vue.material.registerTheme('default', {
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+import {blogPosts} from "./api/api";
+
 const app = new Vue( {
     data: () => {
         return {
@@ -66,6 +69,14 @@ const app = new Vue( {
         },
         close(ref) {
             console.log('Closed: ' + ref);
+        },
+
+        tryAxios() {
+            axios.get('/post').then(console.log).catch(console.log);
+        },
+
+        tryPosts() {
+            blogPosts.get('/').then(console.log).catch(console.log);
         }
     },
 

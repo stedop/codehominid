@@ -43,6 +43,17 @@
                     </router-link>
                 </md-list-item>
             </md-list>
+            <md-list>
+                <md-list-item>
+                    <a @click="tryAxios">Try axios</a>
+                </md-list-item>
+            </md-list>
+
+            <md-list>
+                <md-list-item>
+                    <a @click="tryPosts">Try posts</a>
+                </md-list-item>
+            </md-list>
         </md-sidenav>
         @section('content')
             <transition :name="transitionName">
