@@ -8,7 +8,6 @@ import axios from './../api/api.js';
 import posts from './modules/postsModule'
 
 Vue.use( Vuex );
-Vue.use( VueResource );
 
 // Init store
 const codehominidStore = new Vuex.Store( {
