@@ -66,7 +66,8 @@ const app = new Vue( {
         console.log(this);
         this.setup();
         console.log(this.getApi);
-        this.getApi().get().then(console.log);
+        this.getApi().get('comments/').then(console.log);
+        this.getPosts().get().then(console.log);
     },
 
     methods: {
