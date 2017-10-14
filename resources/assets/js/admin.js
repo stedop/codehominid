@@ -65,7 +65,8 @@ const app = new Vue( {
     created() {
         console.log(this);
         this.setup();
-        this.getApi.get().then(console.log);
+        console.log(this.getApi);
+        this.getApi().get().then(console.log);
     },
 
     methods: {
