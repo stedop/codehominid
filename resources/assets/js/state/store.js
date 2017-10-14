@@ -11,7 +11,7 @@ Vue.use( Vuex );
 Vue.use( VueResource );
 
 // Init store
-const grotecStore = new Vuex.Store( {
+const codehominidStore = new Vuex.Store( {
     state: {
         loading: true, //utilised if I need a loading screen for long data loads
         previousRequest: {}, // so I can abort if needed
@@ -41,3 +41,5 @@ const grotecStore = new Vuex.Store( {
         posts
     }
 } );
+
+export default codehominidStore;
