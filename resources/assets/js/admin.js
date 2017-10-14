@@ -64,14 +64,18 @@ const app = new Vue( {
         console.log(this.methods);
     },
 
-    computed: {
-        ...mapState({
+    computed: mapState(
+        {
             postApi: state => state.posts.api,
             api: state => state.api
-        })
-    },
+        }
+    ),
 
-    methods: {
+    methods: mapActions([
+        'posts/api',
+        'api'
+    ],
+    {
         toggleSidenav() {
             this.$refs.leftSidenav.toggle();
         },
@@ -86,11 +90,8 @@ const app = new Vue( {
             posts
         },
 
-        ...mapActions([
-           'posts/api',
-           'api'
-       ])
-    },
+
+    }),
 
     router
 } );
