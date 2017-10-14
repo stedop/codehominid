@@ -62,16 +62,11 @@ const app = new Vue( {
         }
     },
 
-    created: () =>{
-        this.setPosts(blogPosts);
-        this.setApi(axios);
-
-        console.log(this.getApi);
-        console.log(this.getPosts);
-
-        this.getApi.get().then(console.log);
+    created() {
         console.log(this);
         console.log(params);
+        this.setup();
+        this.getApi.get().then(console.log);
     },
 
     methods: {
@@ -88,6 +83,14 @@ const app = new Vue( {
                 setApi : 'api'
             }
         ),
+
+        setup() {
+            this.setPosts(blogPosts);
+            this.setApi(axios);
+
+            console.log(this.getApi);
+            console.log(this.getPosts);
+        },
 
        toggleSidenav() {
             this.$refs.leftSidenav.toggle();
