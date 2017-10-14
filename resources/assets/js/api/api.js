@@ -15,12 +15,4 @@ const axios = Axios.create({
     timeout: 1000,
     headers: headers
 });
-
-const blogPosts = Axios.create({
-    baseURL: baseURL + 'post/',
-    timeout: 1000,
-    headers: headers
-});
-
-export {axios, blogPosts};
 export default axios;

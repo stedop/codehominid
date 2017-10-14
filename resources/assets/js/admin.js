@@ -60,6 +60,17 @@ const app = new Vue( {
         }
     },
 
+    created: () =>{
+        console.log(this.methods);
+    },
+
+    computed: {
+        ...mapState({
+            postApi: state => state.posts.api,
+            api: state => state.api
+        })
+    },
+
     methods: {
         toggleSidenav() {
             this.$refs.leftSidenav.toggle();
@@ -72,12 +83,13 @@ const app = new Vue( {
         },
 
         tryAxios() {
-            axios.get('post').then(console.log).catch(console.log);
+            posts
         },
 
-        tryPosts() {
-            blogPosts.get().then(console.log).catch(console.log);
-        }
+        ...mapActions([
+           'posts/api',
+           'api'
+       ])
     },
 
     router
