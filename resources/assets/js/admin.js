@@ -63,13 +63,13 @@ const app = new Vue( {
     },
 
     created: () =>{
-        //this.setPosts(blogPosts);
-        //this.setApi(axios);
+        this.setPosts(blogPosts);
+        this.setApi(axios);
 
-        //console.log(this.getApi);
-        //console.log(this.getPosts);
+        console.log(this.getApi);
+        console.log(this.getPosts);
 
-        //this.getApi.get().then(console.log);
+        this.getApi.get().then(console.log);
         console.log(this);
         console.log(params);
     },
@@ -77,15 +77,15 @@ const app = new Vue( {
     methods: {
         ...mapGetters(
             {
-                'getPosts' : 'posts/api',
-                'getApi' : 'api'
+                getPosts : 'posts/api',
+                getApi : 'api'
             }
         ),
 
         ...mapMutations(
             {
-                'setPosts' : 'posts/api',
-                'setApi' : 'api'
+                setPosts : 'posts/api',
+                setApi : 'api'
             }
         ),
 
