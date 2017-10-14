@@ -41,8 +41,8 @@ Vue.material.registerTheme('default', {
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-import {blogPosts} from "./api/api";
-import { mapState, mapMutations } from 'vuex'
+import {axios, blogPosts} from "./api/api";
+import { mapGetters, mapMutations } from 'vuex'
 
 const app = new Vue( {
     data: () => {
@@ -63,22 +63,23 @@ const app = new Vue( {
     },
 
     created: () =>{
-        console.log(window.Vue);
-    },
-
-    computed: {
-        ...mapState( {
-            postApi: state => state.posts.api,
-            api: state => state.api
-        } )
+        this.posts(blogPosts);
+        this.api(axios);
     },
 
     methods: {
+        ...mapGetters(
+            {
+                'posts' : 'posts/api',
+                'api' : 'api'
+            }
+        ),
+
         ...mapMutations(
-            [
-               'posts/api',
-               'api'
-           ]
+            {
+                'posts' : 'posts/api',
+                'api' : 'api'
+            }
         ),
 
        toggleSidenav() {
