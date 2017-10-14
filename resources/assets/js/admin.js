@@ -88,20 +88,8 @@ const app = new Vue( {
             this.$refs.leftSidenav.toggle();
         },
 
-        open(ref) {
-            console.log('Opened: ' + ref);
-        },
+        logout() {
 
-        close(ref) {
-            console.log('Closed: ' + ref);
-        },
-
-        tryAxios() {
-            return '';
-        },
-
-        tryPosts() {
-            return '';
         }
 
 

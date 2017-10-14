@@ -27,10 +27,14 @@
                 <md-button class="md-icon-button">
                     <md-icon>filter_list</md-icon>
                 </md-button>
+
+                <md-button class="md-icon-button" @click="logout">
+                    <md-icon>shutdown</md-icon>
+                </md-button>
             </div>
         </md-toolbar>
 
-        <md-sidenav class="md-left" ref="leftSidenav" @open="open('Left')" @close="close('Left')">
+        <md-sidenav class="md-left" ref="leftSidenav">
             <md-toolbar>
                 <div class="md-toolbar-container">
                     <h3 class="md-title">Do Things</h3>
@@ -41,17 +45,6 @@
                     <router-link :to="{name: 'oauth'}" tag="md-button" class="md-raised md-primary">
                         <md-icon>perm_identity</md-icon> Ouath
                     </router-link>
-                </md-list-item>
-            </md-list>
-            <md-list>
-                <md-list-item>
-                    <a @click="tryAxios">Try axios</a>
-                </md-list-item>
-            </md-list>
-
-            <md-list>
-                <md-list-item>
-                    <a @click="tryPosts">Try posts</a>
                 </md-list-item>
             </md-list>
         </md-sidenav>
