@@ -42,7 +42,7 @@ Vue.material.registerTheme('default', {
  */
 
 import {blogPosts} from "./api/api";
-import { mapState, mapActions } from 'vuex'
+import { mapState, mapMutations } from 'vuex'
 
 const app = new Vue( {
     data: () => {
@@ -63,19 +63,18 @@ const app = new Vue( {
     },
 
     created: () =>{
-        console.log(this.methods);
+        console.log(window.Vue);
     },
 
     computed: {
         ...mapState( {
-
             postApi: state => state.posts.api,
             api: state => state.api
         } )
     },
 
     methods: {
-        ...mapActions(
+        ...mapMutations(
             [
                'posts/api',
                'api'
