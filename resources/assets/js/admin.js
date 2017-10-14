@@ -41,7 +41,7 @@ Vue.material.registerTheme('default', {
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-import {axios} from "./api/api";
+import axios from "./api/api";
 import { mapGetters, mapMutations } from 'vuex'
 
 const app = new Vue( {

@@ -1,9 +1,8 @@
 "use strict";
 
 import loadash from 'lodash';
-import {axios} from "./api/api";
+import axios from "./api/api";
 
-'./api/api';
 
 window._ = loadash;
 window.axios = axios;
