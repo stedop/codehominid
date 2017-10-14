@@ -95,11 +95,11 @@ const app = new Vue( {
         },
 
         tryAxios() {
-
+            return '';
         },
 
-        typePosts() {
-
+        tryPosts() {
+            return '';
         }
 
 
