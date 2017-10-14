@@ -74,7 +74,7 @@ const app = new Vue( {
     },
 
     methods: {
-        mapActions(
+        ...mapActions(
             [
                'posts/api',
                'api'
