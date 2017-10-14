@@ -41,6 +41,7 @@ Vue.material.registerTheme('default', {
  */
 
 import {blogPosts} from "./api/api";
+import { mapState, mapActions } from 'vuex'
 
 const app = new Vue( {
     data: () => {
@@ -64,24 +65,30 @@ const app = new Vue( {
         console.log(this.methods);
     },
 
-    computed: mapState(
-        {
+    computed: {
+        ...mapState( {
+
             postApi: state => state.posts.api,
             api: state => state.api
-        }
-    ),
+        } )
+    },
 
-    methods: mapActions([
-        'posts/api',
-        'api'
-    ],
-    {
-        toggleSidenav() {
+    methods: {
+        ...mapActions(
+            [
+               'posts/api',
+               'api'
+           ]
+        ),
+
+       toggleSidenav() {
             this.$refs.leftSidenav.toggle();
         },
+
         open(ref) {
             console.log('Opened: ' + ref);
         },
+
         close(ref) {
             console.log('Closed: ' + ref);
         },
@@ -91,7 +98,7 @@ const app = new Vue( {
         },
 
 
-    }),
+    },
 
     router
 } );
