@@ -16,6 +16,7 @@ import Clients from './components/passport/Clients.vue';
 import AuthorisedClients from './components/passport/AuthorizedClients.vue';
 import PersonalAccessTokens from './components/passport/PersonalAccessTokens.vue';
 import router from './routes/admin-routes';
+import store from './state/store';
 
 window.Vue = Vue;
 
@@ -94,11 +95,17 @@ const app = new Vue( {
         },
 
         tryAxios() {
-            posts
+
         },
+
+        typePosts() {
+
+        }
 
 
     },
 
-    router
+    router,
+
+    store
 } );
