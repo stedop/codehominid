@@ -24,6 +24,8 @@ import { mapGetters, mapMutations } from 'vuex'
 const app = new Vue( {
     data: () => {
         return {
+            email: '',
+            password: ''
         }
     },
 

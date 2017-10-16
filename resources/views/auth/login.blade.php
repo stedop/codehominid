@@ -22,7 +22,7 @@
 
                 <div class="md-body-2">
                     <md-input-container>
-                        <md-input  id="email" type="email" name="email" value="{{ old('email') }}" required autofocus>
+                        <md-input  id="email" type="email" :value="email">
                             Email
                             <md-icon>email</md-icon>
                         </md-input>
@@ -31,7 +31,7 @@
 
                 <div class="md-body-2">
                     <md-input-container>
-                        <md-input id="password" type="password">
+                        <md-input id="password" type="password" :vlaue="password">
                             Password
                         </md-input>
                     </md-input-container>
