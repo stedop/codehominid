@@ -20,16 +20,20 @@
             {{ csrf_field() }}
 
             <div class="md-body-2">
-                <md-input  id="email" type="email" name="email" value="{{ old('email') }}" required autofocus>
-                    Email
-                    <md-icon>email</md-icon>
-                </md-input>
+                <md-input-container>
+                    <md-input  id="email" type="email" name="email" value="{{ old('email') }}" required autofocus>
+                        Email
+                        <md-icon>email</md-icon>
+                    </md-input>
+                </md-input-container>
             </div>
 
             <div class="md-body-2">
-                <md-input id="password" type="password">
-                    Password
-                </md-input>
+                <md-input-container>
+                    <md-input id="password" type="password">
+                        Password
+                    </md-input>
+                </md-input-container>
             </div>
 
             <div class="md-body-2">
