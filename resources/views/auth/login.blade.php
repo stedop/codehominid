@@ -31,6 +31,7 @@
                 <div class="md-body-2">
                     <md-input-container>
                         <label>Password</label>
+                        <md-icon>lock</md-icon>
                         <md-input id="password" type="password" v-model="password"></md-input>
                     </md-input-container>
                 </div>
