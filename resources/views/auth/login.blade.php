@@ -11,36 +11,37 @@
     <link rel="stylesheet" href="{{ mix('/css/app.css') }}">
 </head>
 <body>
-    <md-toolbar>
-        <h1 class="md-title">Login</h1>
-    </md-toolbar>
-    <div class="container" id="login">
+    <div id="login">
+        <md-toolbar>
+            <h1 class="md-title">Login</h1>
+        </md-toolbar>
+        <div class="container">
 
-        <form novalidate @submit.stop.prevent="open">
-            {{ csrf_field() }}
+            <form novalidate @submit.stop.prevent="open">
+                {{ csrf_field() }}
 
-            <div class="md-body-2">
-                <md-input-container>
-                    <md-input  id="email" type="email" name="email" value="{{ old('email') }}" required autofocus>
-                        Email
-                        <md-icon>email</md-icon>
-                    </md-input>
-                </md-input-container>
-            </div>
+                <div class="md-body-2">
+                    <md-input-container>
+                        <md-input  id="email" type="email" name="email" value="{{ old('email') }}" required autofocus>
+                            Email
+                            <md-icon>email</md-icon>
+                        </md-input>
+                    </md-input-container>
+                </div>
 
-            <div class="md-body-2">
-                <md-input-container>
-                    <md-input id="password" type="password">
-                        Password
-                    </md-input>
-                </md-input-container>
-            </div>
+                <div class="md-body-2">
+                    <md-input-container>
+                        <md-input id="password" type="password">
+                            Password
+                        </md-input>
+                    </md-input-container>
+                </div>
 
-            <div class="md-body-2">
-                <md-button>Login</md-button>
-            </div>
-        </form>
-    </div>
+                <div class="md-body-2">
+                    <md-button>Login</md-button>
+                </div>
+            </form>
+        </div>
     <script src="{{ asset('js/login.js') }}"></script>
 </body>
 </html>
