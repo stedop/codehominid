@@ -37,7 +37,7 @@
                 </div>
 
                 <div class="md-body-2">
-                    <md-button>Login</md-button>
+                    <md-button type="submit">Login</md-button>
                 </div>
             </form>
         </div>
