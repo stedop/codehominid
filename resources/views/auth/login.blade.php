@@ -22,18 +22,16 @@
 
                 <div class="md-body-2">
                     <md-input-container>
-                        <md-input  id="email" type="email" :value="email">
-                            Email
-                            <md-icon>email</md-icon>
-                        </md-input>
+                        <label>Email</label>
+                        <md-icon>email</md-icon>
+                        <md-input  id="email" type="email" v-model="email"></md-input>
                     </md-input-container>
                 </div>
 
                 <div class="md-body-2">
                     <md-input-container>
-                        <md-input id="password" type="password" :vlaue="password">
-                            Password
-                        </md-input>
+                        <label>Password</label>
+                        <md-input id="password" type="password" v-model="password"></md-input>
                     </md-input-container>
                 </div>
 
