@@ -17,7 +17,7 @@
         </md-toolbar>
         <div class="container">
 
-            <form novalidate @submit.stop.prevent="open">
+            <form method="post" action="{{route('login')}}">
                 {{ csrf_field() }}
 
                 <div class="md-body-2">
@@ -43,6 +43,7 @@
             </form>
         </div>
     </div>
+
     <script src="{{ asset('js/login.js') }}"></script>
 </body>
 </html>
