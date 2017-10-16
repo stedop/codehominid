@@ -21,7 +21,7 @@
                 {{ csrf_field() }}
 
                 <div class="md-body-2">
-                    <md-input-container>
+                    <md-input-container md-clearable md-inline>
                         <label>Email</label>
                         <md-icon>email</md-icon>
                         <md-input  id="email" type="email" v-model="email"></md-input>
@@ -29,7 +29,7 @@
                 </div>
 
                 <div class="md-body-2">
-                    <md-input-container>
+                    <md-input-container  md-clearable md-inline md-has-password>
                         <label>Password</label>
                         <md-icon>lock</md-icon>
                         <md-input id="password" type="password" v-model="password"></md-input>
