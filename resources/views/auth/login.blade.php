@@ -24,12 +24,12 @@
                     <md-input-container md-clearable>
                         <md-icon>email</md-icon>
                         <label>Email</label>
-                        <md-input  id="email" type="email" v-model="email"></md-input>
+                        <md-input id="email" type="email" v-model="email"></md-input>
                     </md-input-container>
                 </div>
 
                 <div class="md-body-2">
-                    <md-input-container  md-clearable md-has-password>
+                    <md-input-container md-clearable md-has-password>
                         <md-icon>lock</md-icon>
                         <label>Password</label>
                         <md-input id="password" type="password" v-model="password"></md-input>
