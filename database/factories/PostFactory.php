@@ -12,7 +12,7 @@ $factory->define(\App\Models\Post::class, function (Faker $faker) {
         'slug' => str_slug($title),
         'description' => $faker->paragraph(2),
         'summary' => $faker->paragraph(1),
-        'contents' => $faker->paragraph(15),
+        'content' => $faker->paragraph(15),
         'status' => $faker->boolean(),
         'comments' => $faker->boolean(),
         'featured' => $faker->boolean()
