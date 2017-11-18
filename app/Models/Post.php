@@ -14,8 +14,12 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property string title
  * @property string slug
  * @property string description
+ * @property string summary
  * @property string contents
  * @property string status
+ * @property string comments
+ * @property string featured
+ *
  */
 final class Post extends Model
 {
