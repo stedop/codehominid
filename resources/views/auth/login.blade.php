@@ -24,7 +24,7 @@
                     <md-input-container md-clearable>
                         <md-icon>email</md-icon>
                         <label>Email</label>
-                        <md-input id="email" type="email" v-model="email"></md-input>
+                        <md-input name="email" id="email" type="email" v-model="email"></md-input>
                     </md-input-container>
                 </div>
 
