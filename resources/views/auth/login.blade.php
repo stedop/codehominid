@@ -32,7 +32,7 @@
                     <md-input-container md-clearable md-has-password>
                         <md-icon>lock</md-icon>
                         <label>Password</label>
-                        <md-input id="password" type="password" v-model="password"></md-input>
+                        <md-input name="password" id="password" type="password" v-model="password"></md-input>
                     </md-input-container>
                 </div>
 
