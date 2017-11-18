@@ -29,7 +29,7 @@
                 </md-button>
 
                 <md-button class="md-icon-button" @click="logout">
-                    <md-icon>shutdown</md-icon>
+                    <md-icon>settings_power</md-icon>
                 </md-button>
             </div>
         </md-toolbar>
