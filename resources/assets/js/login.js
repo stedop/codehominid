@@ -30,4 +30,10 @@ const app = new Vue( {
     },
 
     el: '#login',
+
+    methods: {
+        doLogin() {
+            console.log('login');
+        }
+    }
 } );

@@ -17,7 +17,7 @@
         </md-toolbar>
         <div class="container">
 
-            <form novalidate method="post" action="{{route('login')}}">
+            <form novalidate method="post" action="{{route('login')}}" @submit.prevent="doLogin">
                 {{ csrf_field() }}
 
                 <div class="md-body-2">
