@@ -15,9 +15,9 @@ class CreateBlogPostsTable extends Migration {
 			$table->string('description', 255)->nullable();
 			$table->text('summary');
 			$table->text('content');
-			$table->enum('status', array('draft', 'publish'))->index();
-			$table->boolean('comments')->index();
-			$table->boolean('featured')->index();
+			$table->enum('status', array('draft', 'publish'))->default('draft')->index();
+			$table->boolean('comments')->default(1)->index();
+			$table->boolean('featured')->default(0)->index();
 			$table->timestamps();
 			$table->softDeletes();
 		});
