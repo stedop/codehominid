@@ -46,8 +46,7 @@ class LoginController extends Controller
      */
     public function login(Request $request)
     {
-        logger()->debug($request);
-        logger()->debug($this->validateLogin($request));
+        logger()->debug($request->all());
         $this->validateLogin($request);
 
         // If the class is using the ThrottlesLogins trait, we can automatically throttle
