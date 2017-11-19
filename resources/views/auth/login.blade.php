@@ -25,6 +25,11 @@
                         <md-icon>email</md-icon>
                         <label>Email</label>
                         <md-input name="email" id="email" type="email" v-model="email"></md-input>
+                        @if ($errors->has('email'))
+                            <span class="help-block">
+                                <strong>{{ $errors->first('email') }}</strong>
+                            </span>
+                        @endif
                     </md-input-container>
                 </div>
 
@@ -33,6 +38,11 @@
                         <md-icon>lock</md-icon>
                         <label>Password</label>
                         <md-input name="password" id="password" type="password" v-model="password"></md-input>
+                        @if ($errors->has('password'))
+                            <span class="help-block">
+                                <strong>{{ $errors->first('password') }}</strong>
+                            </span>
+                        @endif
                     </md-input-container>
                 </div>
 
